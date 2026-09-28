@@ -12,7 +12,7 @@ export function ResumeButton({ text = "Résumé", size = "sm", className }: Resu
   return (
     <ExternalLink
       href={profile.resumeUrl}
-      className={buttonClasses({ variant: "secondary", size: "sm", className })}
+      className={buttonClasses({ variant: "secondary", size, className })}
     >
       {text}
     </ExternalLink>

@@ -5,10 +5,12 @@ type ExternalLinkProps = {
   href: string;
   children: ReactNode;
   className?: string;
-  label?: string; 
-  newTab?: boolean; 
+  label?: string;
+  newTab?: boolean;
 };
 
+// Site-এর বাইরের link (GitHub, LinkedIn, mailto, PDF)।
+// এগুলো Next.js-এর page না, তাই সাধারণ <a>।
 export function ExternalLink({
   href,
   children,

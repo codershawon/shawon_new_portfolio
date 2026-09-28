@@ -9,6 +9,7 @@ import { CaseStudyHeader } from "@/sections/case-study/CaseStudyHeader";
 import { ProjectFacts } from "@/sections/case-study/ProjectFacts";
 import { CaseStudyBlock } from "@/sections/case-study/CaseStudyBlock";
 import { CaseStudyStory } from "@/sections/case-study/CaseStudyStory";
+import { pageMetadata } from "@/lib/metadata";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -26,10 +27,11 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) return {};
 
-  return {
+    return pageMetadata({
     title: project.title,
     description: project.summary,
-  };
+    path: `/projects/${project.slug}`,
+  });
 }
 
 // ৩. Page নিজে

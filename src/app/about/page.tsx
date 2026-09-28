@@ -5,12 +5,14 @@ import { AboutStory } from "@/sections/about/AboutStory";
 import { QuickFacts } from "@/sections/about/QuickFacts";
 import { Skills } from "@/sections/about/Skills";
 import { Journey } from "@/sections/about/Journey";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description:
     "Shawon Barua is a full-stack web developer in Chattogram, Bangladesh, working on healthcare systems, SaaS tools and Shopify apps.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -5,6 +5,8 @@ import { Header } from "@/components/layout/Header";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Footer } from "@/components/layout/Footer";
+import { siteUrl } from "@/lib/site";
+import { defaultTitle } from "@/lib/metadata";
 
 const mainFont = Instrument_Sans({
   subsets: ["latin"],
@@ -13,12 +15,14 @@ const mainFont = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} | ${profile.role}`,
+    default: defaultTitle,
     template: `%s | ${profile.name}`,
   },
-  description:
-    "Full-stack web developer in Chattogram, Bangladesh. I build healthcare systems, SaaS tools and Shopify apps with React, Next.js, TypeScript, Node.js and Prisma.",
+  description: profile.description,
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
 };
 
 export default function RootLayout({

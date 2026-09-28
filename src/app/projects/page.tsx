@@ -3,11 +3,14 @@ import { projects } from "@/data/projects";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { ProjectCard } from "@/components/projects/ProjectCard";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Projects",
-  description: "Production apps, client work and products built by Shawon Barua.",
-};
+  description:
+    "Production apps, client work and products built by Shawon Barua.",
+  path: "/projects",
+});
 
 export default function ProjectsPage() {
   return (

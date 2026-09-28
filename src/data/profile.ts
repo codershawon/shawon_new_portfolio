@@ -5,9 +5,10 @@ export const profile = {
   role: "Full-Stack Web Developer",
   location: "Chattogram, Bangladesh",
   email: "shawonb500@gmail.com",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/shawon_barua_resume.pdf",
   availability: "Open to full-time roles and freelance projects",
-
+  description:
+    "Full-stack web developer in Chattogram, Bangladesh. I build healthcare systems, SaaS tools and Shopify apps with React, Next.js, TypeScript, Node.js and Prisma.",
   headline:
     "Full-stack developer building healthcare systems, SaaS tools and Shopify apps.",
   intro:

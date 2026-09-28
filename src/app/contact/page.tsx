@@ -5,11 +5,14 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { AvailabilityBadge } from "@/components/ui/AvailabilityBadge";
 import { ContactForm } from "@/sections/contact/ContactForm";
 import { ContactDetails } from "@/sections/contact/ContactDetails";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact",
-  description: "Get in touch with Shawon Barua about a full-time role or a freelance project.",
-};
+  description:
+    "Get in touch with Shawon Barua about a full-time role or a freelance project.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
