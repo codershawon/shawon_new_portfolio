@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { profile } from "@/data/profile";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";

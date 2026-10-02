@@ -5,6 +5,7 @@ type FactItemProps = {
   children: ReactNode;
 };
 
+// "নাম: মান" জোড়া। <dl>-এর ভেতরে বসে (about, contact, case study)।
 export function FactItem({ label, children }: FactItemProps) {
   return (
     <div>

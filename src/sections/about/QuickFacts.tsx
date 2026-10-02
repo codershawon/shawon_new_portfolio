@@ -1,5 +1,5 @@
+import { FactItem } from "@/components/ui/FactItem";
 import { quickFacts } from "@/data/about";
-import { FactItem } from "../case-study/FactItem";
 
 export function QuickFacts() {
   return (

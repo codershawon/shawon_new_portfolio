@@ -4,8 +4,6 @@ import { Resend } from "resend";
 import { getTopicLabel } from "@/data/contact";
 import { contactSchema, type ContactFormState } from "@/lib/validations/contact";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // ৩ সেকেন্ডের কম সময়ে পূরণ হলে ধরে নিই robot
 const MIN_FILL_TIME_MS = 3000;
 
@@ -48,13 +46,28 @@ export async function sendContactMessage(
     };
   }
 
-  // ৪. Email পাঠানো
+  // ৪. Email পাঠানোর ব্যবস্থা আছে কিনা
+  const apiKey = process.env.RESEND_API_KEY;
+  const toEmail = process.env.CONTACT_TO_EMAIL;
+
+  if (!apiKey || !toEmail) {
+    console.error("Email is not configured: RESEND_API_KEY or CONTACT_TO_EMAIL is missing.");
+    return {
+      status: "error",
+      message: "The contact form isn't working right now. Please email me directly instead.",
+      fieldErrors: {},
+      values,
+    };
+  }
+
+  // ৫. Email পাঠানো
+  const resend = new Resend(apiKey);
   const { name, email, topic, message } = result.data;
   const topicLabel = getTopicLabel(topic);
 
   const { error } = await resend.emails.send({
     from: "Portfolio Contact <onboarding@resend.dev>",
-    to: process.env.CONTACT_TO_EMAIL ?? "",
+    to: toEmail,
     replyTo: email,
     subject: `[Portfolio] ${topicLabel} from ${name}`,
     text: [`Name: ${name}`, `Email: ${email}`, `Topic: ${topicLabel}`, "", message].join("\n"),
@@ -70,7 +83,7 @@ export async function sendContactMessage(
     };
   }
 
-  // ৫. সফল
+  // ৬. সফল
   return {
     status: "success",
     message: "Thanks! Your message has been sent. I'll reply within 24 hours.",

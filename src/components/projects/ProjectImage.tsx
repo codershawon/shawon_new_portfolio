@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LuImage } from "react-icons/lu";
+import { cn } from "@/lib/cn";
 import type { Project } from "@/data/projects";
 
 type ProjectImageProps = {
@@ -23,7 +24,7 @@ export function ProjectImage({
   }
 
   return (
-    <div className={frame}>
+    <div className={cn(frame, "flex flex-col items-center justify-center gap-2 text-muted")}>
       <Image
         src={project.image}
         alt={`Screenshot of ${project.title}`}

@@ -9,7 +9,7 @@ export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
   if (!mounted) {
-    return <span className="size-10" aria-hidden="true" />;
+        return <span className="inline-block size-10" aria-hidden="true" />;
   }
 
   const isDark = resolvedTheme === "dark";

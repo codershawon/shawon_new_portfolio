@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Footer } from "@/components/layout/Footer";
 import { siteUrl } from "@/lib/site";
 import { defaultTitle } from "@/lib/metadata";
+import Link from "next/link";
 
 const mainFont = Instrument_Sans({
   subsets: ["latin"],
@@ -32,13 +33,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={mainFont.variable} suppressHydrationWarning>
-    <body>
-      <ThemeProvider>
-        <Header />
-        <main id="main">{children}</main>
-         <Footer />
-      </ThemeProvider>
-    </body>
-  </html>
+      <body>
+        <ThemeProvider>
+          <Link
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:font-semibold focus:text-on-brand"
+          >
+            Skip to content
+          </Link>
+
+          <Header />
+          <main id="main" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

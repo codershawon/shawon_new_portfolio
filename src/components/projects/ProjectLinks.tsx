@@ -11,29 +11,28 @@ const linkStyle =
   "inline-flex items-center gap-1.5 font-semibold text-brand-ink hover:underline";
 
 export function ProjectLinks({ project }: ProjectLinksProps) {
-  const links =
-    "links" in project && project.links && typeof project.links === "object"
-      ? (project.links as { live?: string; github?: string })
-      : {};
-  const isPrivate = !links.github;
+  const { live, github } = project.links;
+
+  // দেখানোর মতো কিছু না থাকলে খালি বাক্স বানাই না
+  if (!live && !github && !project.isPrivate) return null;
 
   return (
     <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.95rem]">
-      {links.live && (
-        <ExternalLink href={links.live} className={linkStyle}>
+      {live && (
+        <ExternalLink href={live} className={linkStyle}>
           <LuExternalLink className="size-4" aria-hidden="true" />
           Live site
         </ExternalLink>
       )}
 
-      {links.github && (
-        <ExternalLink href={links.github} className={linkStyle}>
+      {github && (
+        <ExternalLink href={github} className={linkStyle}>
           <FaGithub className="size-4" aria-hidden="true" />
           Code
         </ExternalLink>
       )}
 
-      {isPrivate && (
+      {project.isPrivate && (
         <span className="inline-flex items-center gap-1.5 text-muted">
           <LuLock className="size-4" aria-hidden="true" />
           Private codebase

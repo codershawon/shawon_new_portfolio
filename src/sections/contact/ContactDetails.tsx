@@ -1,7 +1,7 @@
 import { profile } from "@/data/profile";
 import { socialLinks } from "@/data/socials";
 import { ExternalLink } from "@/components/ui/ExternalLink";
-import { FactItem } from "../case-study/FactItem";
+import { FactItem } from "@/components/ui/FactItem";
 
 export function ContactDetails() {
   const webLinks = socialLinks.filter((link) => link.newTab);

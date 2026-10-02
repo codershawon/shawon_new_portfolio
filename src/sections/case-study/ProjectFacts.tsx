@@ -1,6 +1,6 @@
 import type { Project } from "@/data/projects";
 import { TagList } from "@/components/ui/TagList";
-import { FactItem } from "./FactItem";
+import { FactItem } from "@/components/ui/FactItem";
 
 type ProjectFactsProps = {
   project: Project;

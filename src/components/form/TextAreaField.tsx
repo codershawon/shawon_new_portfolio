@@ -1,5 +1,6 @@
 import { FieldError } from "./FieldError";
 import { fieldClasses } from "./field-styles";
+import { cn } from "@/lib/cn";
 
 type TextAreaFieldProps = {
   name: string;
@@ -25,7 +26,7 @@ export function TextAreaField({ name, label, rows = 6, defaultValue, error }: Te
         defaultValue={defaultValue}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={`${fieldClasses(Boolean(error))} resize-y`}
+        className={cn(fieldClasses(Boolean(error)), "resize-y")}
       />
       <FieldError id={errorId} message={error} />
     </div>

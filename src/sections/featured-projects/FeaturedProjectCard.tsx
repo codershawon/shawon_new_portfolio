@@ -27,7 +27,7 @@ export function FeaturedProjectCard({ project, reverse = false }: FeaturedProjec
         <h3 className="mt-2 text-2xl">{project.title}</h3>
         {project.status && (
           <div className="mt-3">
-            <ProjectStatus text={String(project.status)} />
+              <ProjectStatus text={project.status} />
           </div>
         )}
 
