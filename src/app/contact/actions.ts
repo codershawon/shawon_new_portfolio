@@ -66,7 +66,7 @@ export async function sendContactMessage(
   const topicLabel = getTopicLabel(topic);
 
   const { error } = await resend.emails.send({
-    from: "Portfolio Contact <onboarding@resend.dev>",
+    from: "Portfolio Contact <contact@send.shawonbarua.me>",
     to: toEmail,
     replyTo: email,
     subject: `[Portfolio] ${topicLabel} from ${name}`,

@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Footer } from "@/components/layout/Footer";
 import { siteUrl } from "@/lib/site";
 import { defaultTitle } from "@/lib/metadata";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
 
 const mainFont = Instrument_Sans({
@@ -47,6 +49,8 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
