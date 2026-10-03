@@ -173,3 +173,106 @@ section[id] {
   bottom: -0.9rem;
   border-width: 0 0 3px 3px;
 }
+
+/* ==============================================
+   ৬. Blog post-এর লেখা
+   markdown থেকে আসা HTML-এ Tailwind class থাকে না,
+   তাই এখানে সাজাতে হয়
+   ============================================== */
+.prose > * + * {
+  margin-top: 1.4em;
+}
+
+.prose h2 {
+  font-size: 1.6rem;
+  margin-top: 2.5em;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  margin-top: 2em;
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: 0.8em;
+}
+
+.prose a {
+  color: var(--brand-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li + li {
+  margin-top: 0.5em;
+}
+.prose li::marker {
+  color: var(--muted);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--brand);
+  padding-left: 1.1em;
+  color: var(--muted);
+}
+
+.prose img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--line);
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin-top: 2.5em;
+}
+
+/* লেখার মাঝের ছোট code: `useState` */
+.prose :not(pre) > code {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.3rem;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+
+/* Shiki-র code block */
+.prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1.1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Shiki দুই রকম রং CSS variable-এ রাখে; theme অনুযায়ী বেছে নেওয়া */
+.prose .shiki,
+.prose .shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+.dark .prose .shiki,
+.dark .prose .shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
+}

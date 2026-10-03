@@ -6,7 +6,6 @@ export type NavItem = {
 export const navItems: NavItem[] = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  // Blog তৈরি হলে এখানে যোগ করবেন:
-  // { label: "Blog", href: "/blog" },
 ];
