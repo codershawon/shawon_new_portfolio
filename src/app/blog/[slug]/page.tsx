@@ -59,7 +59,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <Container>
       <JsonLd data={articleSchema} />
-      <article className="max-w-prose pt-10 pb-24 sm:pt-16">
+      <article className="pt-10 pb-24 sm:pt-16">
         <BackLink href="/blog">All posts</BackLink>
 
         <header className="mt-8">
